@@ -480,3 +480,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Agent game-player (estado local)
+.claude/game-state/
+.claude/STOP

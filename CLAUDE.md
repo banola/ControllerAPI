@@ -31,3 +31,8 @@ dotnet run --project src/ControllerApi        # Windows
 dotnet publish src/ControllerApi -c Release -r win-x64
 ```
 Exemplos de requisição: `src/ControllerApi/ControllerApi.http`. OpenAPI em `/openapi/v1.json` (Development).
+
+## Agent jogador (`.claude/`)
+- `agents/game-player.md` joga via API local (rodar: `claude --agent game-player` ou delegar ao subagent `game-player`). Skills: `game-controls`, `game-screenshot` (scripts bash/curl; precisa de `curl` e `base64`, ex.: Git Bash no Windows).
+- Hooks: `settings.json` SessionStart checa a API; `hooks/guard.sh` (PreToolUse do agent) bloqueia >5 ações sem screenshot e respeita o kill switch `touch .claude/STOP` (apague para retomar).
+- Env opcional: `CONTROLLER_API_URL`, `CONTROLLER_API_KEY`.
